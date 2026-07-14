@@ -1,16 +1,10 @@
-#include<unordered_map>
 class Solution {
 public:
-    unordered_map<int,int> fmap;
     int singleNumber(vector<int>& nums) {
+        int xorValue=0;
         for(int num : nums){
-            fmap[num]++;
+            xorValue ^=num;
         }
-        for(auto& i :fmap){
-            if(i.second == 1){
-                return i.first;
-            }
-        }
-        return -1;
+        return xorValue;
     }
 };
